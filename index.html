@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Uplynk Example</title>
+        <script src="//code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="//storage.uplynk.com/js/swfobject.js"></script>
+        <script src="//storage.uplynk.com/js/uplynk.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#uplynkPlayer').player('play', 'http://content.uplynk.com/468ba4d137a44f7dab3ad028915d6276.m3u8');
+                $('#uplynkPlayer').bind(uplynk.events.PLAYER_STATE_CHANGED, function(e, arg) {
+                    // Logs these events OK: loading, loaded, play, pause
+                    // Issue: Does not log a 'seeking' event when player slider is moved to a different position
+                    console.log(arg);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="uplynkPlayer"></div>
+    </body>
+</html>
